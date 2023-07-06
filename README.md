@@ -7,18 +7,16 @@ Using this Github Action requires the following three pieces of information to b
 
 - `app` secret is the name of your app, exactly as it's specified in Caprover.
 - `token` secret is obtained fromt he "Deployment" tab of the app in Caprover. Click "Enable App Token" to generate a token.
-- `server` secret can be organization-wide, per project, or per project override and in the format of https://captain.apps.your-domain.com.
+- `server` secret can be organization-wide, per project, or per project override and in the format of <https://captain.apps.your-domain.com>.
 Optional:
 - `image` secret can be used to specify the specific image you want to deploy, this is particularly useful when you want to build on Github.
 - `branch` secret can be used to specify the branch you want to deploy to CapRover.
 - If `image` and `branch` are empty, this action expects a tar file located at the root of the project `./deploy.tar` to deploy
 
+### Example 1 - deploy using image
 
-
-### Example 1 - deploy using image:
 This method is preferred because you end up using Github servers to build your image and your own CapRover server just receives the built image. This is very useful specially if your server resources are limited.
 Specify `CAPROVER_APP_TOKEN` and `CAPROVER_HOST` as secret in your repo. Also change `env` section in the action and you're good to go!
-
 
 ```yaml
 name: Deploy to staging
@@ -67,6 +65,7 @@ jobs:
 ```
 
 `build_and_push.sh`
+
 ```bash
 #!/bin/bash
 
@@ -143,5 +142,5 @@ NOTE: Deployments take place within seconds after the workflow has been processe
 
 For more information:
 
-A complete Vue 3 frontend starter project that includes a PHP backend that uses this Github Action can be found at https://github.com/PremoWeb/SDK-Foundation-Vue/.
-The example workflow presented on this page was sourced from https://github.com/PremoWeb/SDK-Foundation-Vue/blob/main/.github/workflows/deploy.yml.
+A complete Vue 3 frontend starter project that includes a PHP backend that uses this Github Action can be found at <https://github.com/PremoWeb/SDK-Foundation-Vue/>.
+The example workflow presented on this page was sourced from <https://github.com/PremoWeb/SDK-Foundation-Vue/blob/main/.github/workflows/deploy.yml>.
